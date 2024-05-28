@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.loading-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* width */
+.scroll-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+.scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  /* Color of the scrollbar handle */
+  border-radius: 5px;
+  /* Apply border-radius to make corners slightly rounded */
+}
+
+/* Handle on hover */
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+  /* Color of the scrollbar handle on hover */
+}
+
+/* styles/TwoColorBorder.module.css */
+
+.twoColorBorder {
+  position: relative;
+}
+
+.twoColorBorder::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  border: 2px solid transparent;
+  background: linear-gradient(to right, #3498db, #e74c3c);
+  border-radius: 4px;
+}
+
+.barcontain .recharts-text tspan {
+  font-size: 8px;
+  width: 30px !important;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.barcontain .recharts-bar-rectangle {
+  width: 24px;
+}
+
+.barcontain .recharts-bar-rectangle rect {
+  width: 24px;
+}
+
+/* input[type="email"] {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  outline-offset: 4px;
+} */
